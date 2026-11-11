@@ -1,6 +1,8 @@
 package models;
 
 import enums.OrderStatus;
+import states.OrderState;
+import states.PlacedState;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +22,8 @@ public class Order {
 
     private OrderStatus status;
 
+    private OrderState state;
+
 
 
 
@@ -31,6 +35,7 @@ public class Order {
         this.totalAmount = totalAmount;
         this.orderDate = LocalDateTime.now();
         this.status = OrderStatus.PLACED;
+        this.state = new PlacedState();
 
     }
 
@@ -38,9 +43,11 @@ public class Order {
     public String getId() { return id; }
     public OrderStatus getStatus() { return status; }
     public void setStatus(OrderStatus status) {
-        // TODO: Update the order status and tell the observers.
-        // Store the new status on the order.
-        // Then notify the observers so the customer gets the update.
+        this.status = status;
+    }
+
+    public void setOrderState(OrderState state){
+        this.state = state;
     }
     public List<OrderLineItem> getItems() { return items; }
 
