@@ -39,6 +39,19 @@ public class Order {
 
     }
 
+    public void shipOrder(){
+        state.ship(this);
+
+    }
+
+    public void deliverOrder(){
+        state.deliver(this);
+    }
+
+    public void cancelOrder(){
+        state.cancel(this);
+    }
+
     // Getters and Setters
     public String getId() { return id; }
     public OrderStatus getStatus() { return status; }
