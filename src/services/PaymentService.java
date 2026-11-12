@@ -5,7 +5,7 @@ import strategy.PaymentStrategy;
 public class PaymentService {
     private PaymentStrategy paymentStrategy;
 
-    PaymentService(){
+    public PaymentService(){
 
     }
 

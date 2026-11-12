@@ -48,6 +48,10 @@ public class Cart {
         return totalPrice;
     }
 
+    public void clearCart(){
+        cartItems.clear();
+    }
+
 
 
 
