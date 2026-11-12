@@ -1,5 +1,7 @@
 package models;
 
+import util.UniqueIdGenerator;
+
 public class CartItem {
     private final String id;
 
@@ -9,8 +11,8 @@ public class CartItem {
 
     private int quantity;
 
-    CartItem(String id, Product product, double priceWhenAdded, int initialQuantity){
-        this.id = id;
+    CartItem(Product product, double priceWhenAdded, int initialQuantity){
+        this.id = UniqueIdGenerator.getUniqueId();
         this.product = product;
         this.priceWhenAdded = priceWhenAdded;
         this.quantity = initialQuantity;

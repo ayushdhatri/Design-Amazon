@@ -1,5 +1,9 @@
 package models;
 
+import util.UniqueIdGenerator;
+
+import java.util.UUID;
+
 public class Customer {
     private final String id;
 
@@ -9,8 +13,8 @@ public class Customer {
 
     private final Account account;
 
-    Customer(String id, String name, Address shippingAddress, Account account){
-        this.id = id;
+    public Customer(String name, Address shippingAddress, Account account){
+        this.id = UniqueIdGenerator.getUniqueId();
         this.name = name;
         this.shippingAddress = shippingAddress;
         this.account = account;

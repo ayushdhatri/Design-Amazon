@@ -1,5 +1,7 @@
 package models;
 
+import util.UniqueIdGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +14,7 @@ public class Cart {
     private final Map<String, CartItem> cartItems;
 
     Cart(){
-        this.id = UUID.randomUUID().toString().substring(0,8);
+        this.id = UniqueIdGenerator.getUniqueId();
         this.cartItems = new ConcurrentHashMap<>();
     }
 
@@ -24,16 +26,8 @@ public class Cart {
         return cartItems.values().stream().toList();
     }
 
-    public synchronized void updateCartItemQuantity(CartItem cartItem, int newQuantity){
-        if(cartItem == null){
-            throw new IllegalArgumentException("CartItem cannot be null!");
-        }
-
-        if(cartItems.containsKey(cartItem.getId())){
-            CartItem currentCartItem = cartItems.get(cartItem.getId());
-            currentCartItem.updateQuantity(newQuantity);
-            return;
-        }
+    public synchronized void updateCartItemQuantity(Product product, int newQuantity){
+        CartItem cartItem = new CartItem(product, product.getPrice(), newQuantity);
         cartItems.put(cartItem.getId(), cartItem);
     }
 

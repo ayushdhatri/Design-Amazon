@@ -1,6 +1,7 @@
 package models;
 
 import enums.ProductCategory;
+import util.UniqueIdGenerator;
 
 public class Product {
     private final String id;
@@ -13,8 +14,8 @@ public class Product {
 
     private final ProductCategory category;
 
-    Product(String id, String name, String desc, double price, ProductCategory category){
-        this.id = id;
+    Product(String name, String desc, double price, ProductCategory category){
+        this.id = UniqueIdGenerator.getUniqueId();
         this.name = name;
         this.desc = desc;
         this.price = price;

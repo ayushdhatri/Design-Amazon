@@ -3,6 +3,7 @@ package models;
 import enums.OrderStatus;
 import states.OrderState;
 import states.PlacedState;
+import util.UniqueIdGenerator;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,7 +27,7 @@ public class Order {
     private OrderState state;
 
     public Order(Customer customer, List<OrderLineItem> items, Address shippingAddress, double totalAmount) {
-        this.id = UUID.randomUUID().toString().substring(0,8);
+        this.id = UniqueIdGenerator.getUniqueId();
         this.customer = customer;
         this.items = items;
         this.shippingAddress = shippingAddress;

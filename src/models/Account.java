@@ -14,7 +14,7 @@ public class Account {
 
     private List<Order> orderHistory;
 
-    Account(String username, String password){
+    public Account(String username, String password){
         this.id = UUID.randomUUID().toString().substring(0,8);
         this.username = username;
         this.password = password;
