@@ -6,6 +6,7 @@ import states.PlacedState;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 public class Order {
     private final String id;
@@ -25,7 +26,7 @@ public class Order {
     private OrderState state;
 
     public Order(Customer customer, List<OrderLineItem> items, Address shippingAddress, double totalAmount) {
-        this.id = "ORD-1001";
+        this.id = UUID.randomUUID().toString().substring(0,8);
         this.customer = customer;
         this.items = items;
         this.shippingAddress = shippingAddress;
