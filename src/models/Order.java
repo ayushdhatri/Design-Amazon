@@ -24,9 +24,6 @@ public class Order {
 
     private OrderState state;
 
-
-
-
     public Order(Customer customer, List<OrderLineItem> items, Address shippingAddress, double totalAmount) {
         this.id = "ORD-1001";
         this.customer = customer;
@@ -36,7 +33,6 @@ public class Order {
         this.orderDate = LocalDateTime.now();
         this.status = OrderStatus.PLACED;
         this.state = new PlacedState();
-
     }
 
     public void shipOrder(){

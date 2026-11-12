@@ -1,4 +1,5 @@
 package strategy;
 
-public class PaymentStrategy {
+public interface PaymentStrategy {
+    boolean pay(double amount);
 }
