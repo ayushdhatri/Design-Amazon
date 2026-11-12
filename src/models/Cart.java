@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Cart {
@@ -10,8 +11,8 @@ public class Cart {
 
     private final Map<String, CartItem> cartItems;
 
-    Cart(String id){
-        this.id = id;
+    Cart(){
+        this.id = UUID.randomUUID().toString().substring(0,8);
         this.cartItems = new ConcurrentHashMap<>();
     }
 
