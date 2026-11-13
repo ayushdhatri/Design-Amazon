@@ -22,14 +22,10 @@ public class OnlineShoppingCart {
 
     private final PaymentService paymentService;
 
-
-
-
     public OnlineShoppingCart(){
         this.inventoryService = new InventoryService();
         this.orderService = new OrderService(inventoryService);
         this.paymentService = new PaymentService();
-
     }
 
     public void addProductToInventory(Product product, int intialStock){
