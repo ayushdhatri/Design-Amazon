@@ -31,6 +31,7 @@ public class OnlineShoppingCart {
     public void addProductToInventory(Product product, int intialStock){
         this.inventoryService.addStock(product, intialStock);
         this.products.put(product.getId(), product);
+        System.out.println("Product added to inventory");
     }
 
     public Customer registerCustomer(String name, String username, String password,
